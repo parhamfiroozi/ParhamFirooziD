@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import './components/NavBar/NavBar.css';
-import './index.css';
+import './index.css';  // unchanged
 
 // Page components
 import HomePage       from './pages/HomePage';
@@ -34,18 +34,18 @@ export default function App() {
         previewKey={preview}
       />
 
-      <main style={{ padding: '2rem' }}>
+
+     <main className="content-wrapper">
         <Routes>
-          {/* Redirect root to /cocoon */}
-          <Route path="/" element={<Navigate to="/cocoon" replace />} />
-          <Route path="/cocoon"            element={<HomePage />} />
-          <Route path="/0101"              element={<CodingPage />} />
-          <Route path="/cdvdt"             element={<ElectricalPage />} />
-          <Route path="/pvnrt"             element={<PhysicsPage />} />
-          <Route path="/maryammirzakhani"  element={<MathPage />} />
-          {/* Catch any other path back to /cocoon */}
-          <Route path="*" element={<Navigate to="/cocoon" replace />} />
+          <Route path="/"            element={<Navigate to="/cocoon" replace />} />
+          <Route path="/cocoon"      element={<HomePage />} />
+          <Route path="/0101"        element={<CodingPage />} />
+          <Route path="/cdvdt"       element={<ElectricalPage />} />
+          <Route path="/pvnrt"       element={<PhysicsPage />} />
+          <Route path="/maryammirzakhani" element={<MathPage />} />
+          <Route path="*"            element={<Navigate to="/cocoon" replace />} />
         </Routes>
+
       </main>
     </>
   );

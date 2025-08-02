@@ -64,3 +64,9 @@ a {
 html {
   scroll-behavior: smooth;
 }
+body {
+  margin: 0;
+}
+main {
+  padding-top: 100px; /* at least navbar height (64px) + extra spacing */
+}

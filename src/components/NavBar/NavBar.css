@@ -1,42 +1,74 @@
+/* src/components/NavBar/NavBar.css */
+
+/* 1. Fixed at top, full-width */
 .navbar {
-  position: sticky; top: 0; width: 100%;
-  background: #222; box-shadow: 0 2px 4px rgba(0,0,0,0.4);
-  font-family: 'CMU Typewriter', monospace; z-index:1000;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.85);  /* slight transparency */
+  backdrop-filter: blur(4px);     /* optional glassy effect */
+  z-index: 1000;
+  font-family: 'CMU Typewriter', monospace;
 }
-.navbar__nav { max-width:1200px; margin:0 auto; padding:1rem; }
-.navbar__list { display:flex; gap:2rem; list-style:none; margin:0; padding:0; }
-.navbar__item { position: relative; padding-bottom:0.5rem; }
+
+/* 2. Inner container centers and constrains width */
+.navbar__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+/* 3. Logo area (optional) */
+.navbar__logo {
+  color: var(--text-color, #fff);
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-right: 2rem;
+}
+
+/* 4. Nav list fills remaining space */
+.navbar__nav {
+  flex: 1;
+}
+
+.navbar__list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 5. List items and links */
+.navbar__item {
+  position: relative;
+}
+
 .navbar__link {
-  display:inline-block; text-decoration:none!important; font-size:1rem;
-  color: var(--text-color,#ddd); padding:0.5rem 0.75rem;
-  transition:color 0.2s ease;
+  display: inline-block;
+  color: var(--text-color, #ddd);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
 }
-.navbar__link:hover, .navbar__link:focus { color:#fff; }
 
-/* Float for Physics */
-@keyframes float {0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
-.physics-link:hover>.navbar__link{animation:float 2s ease-in-out infinite!important;}
-
-/* Ripple for Home */
-.home-link{position:relative;overflow:hidden;}
-.home-link::after {
-  content:''; position:absolute; left:50%; top:50%;
-  width:0;height:0; background:rgba(79,195,247,0.2);
-  border-radius:50%; transform:translate(-50%,-50%);
-  transition:width .5s ease, height .5s ease, opacity .5s ease;
-  opacity:0;
+/* 6. Hover & active styles */
+.navbar__link:hover,
+.navbar__link.active {
+  color: #fff;
+  border-bottom-color: #4fc3f7;
 }
-.home-link:hover::after {
-  width:200px; height:200px; opacity:1;
-}
-/* add to NavBar.css */
 
-/* the ripple pseudo-element */
+/* 7. Home ripple (pointer events off) */
 .home-link {
   position: relative;
   overflow: hidden;
 }
-
 .home-link::after {
   content: '';
   position: absolute;
@@ -44,41 +76,206 @@
   width: 0; height: 0;
   background: rgba(79,195,247,0.2);
   border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+  transform: translate(-50%,-50%);
+  transition: width .5s ease, height .5s ease, opacity .5s ease;
   opacity: 0;
+  pointer-events: none;
 }
-
-/* on hover, grow and fade the circle */
 .home-link:hover::after {
   width: 200px;
   height: 200px;
   opacity: 1;
 }
-/* Ripple for Home */
-.home-link {
-  position: relative;
-  overflow: hidden;
+
+/* 8. Physics float */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-6px); }
+}
+.physics-link:hover > .navbar__link {
+  animation: float 2s ease-in-out infinite !important;
+}
+/* inside src/components/NavBar/NavBar.css */
+
+/* 2a. Inner wrapper */
+.navbar__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
 }
 
+/* Logo styling */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+.navbar__logo img {
+  height: 64px;            /* adjust as needed */
+  width: auto;
+}
+/* src/components/NavBar/NavBar.css */
+
+/* 1. Fixed, full-width bar */
+.navbar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  font-family: 'CMU Typewriter', monospace;
+}
+
+/* 2. Inner container to center & size */
+.navbar__inner {
+  max-width: 1200px;
+  height: 64px;               /* fixed height */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;        /* vertical centering */
+  padding: 0 1rem;
+}
+
+/* 3. Logo area */
+.navbar__logo {
+  color: var(--text-color, #fff);
+  font-size: 1.25rem;
+  margin-right: 2rem;
+  flex-shrink: 0;
+}
+
+/* 4. Nav links region fills remaining space */
+.navbar__nav {
+  flex: 1;
+}
+.navbar__list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 5. Items & links */
+.navbar__item {
+  position: relative;
+}
+.navbar__link {
+  display: inline-block;
+  color: var(--text-color, #ddd);
+  text-decoration: none !important;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+.navbar__link:hover,
+.navbar__link.active {
+  color: #fff;
+  border-bottom-color: #4fc3f7;
+}
+
+/* ripple and float rules here… (unchanged) */
+/* src/components/NavBar/NavBar.css */
+
+/* 1. Fixed, full-width bar */
+.navbar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  font-family: 'CMU Typewriter', monospace;
+}
+
+/* 2. Inner container now left-aligned */
+/*    - margin: 0 removes centering */
+/*    - you can keep max-width or remove it if you want full-bleed */
+.navbar__inner {
+  max-width: 1200px;     /* remove or adjust as desired */
+  margin: 0;             /* left-align instead of margin: 0 auto */
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem 0 0;    /* right padding only, remove left padding */
+}
+
+/* 3. Logo area flush to left edge */
+.navbar__logo {
+  color: var(--text-color, #fff);
+  font-size: 1.2
+2rem;
+  font-weight: bold;
+  margin-right: 2 rem;
+  flex-shrink: 0;
+  cursor: default;
+}
+
+/* 4. Nav links region fills remaining space */
+.navbar__nav {
+  flex: 1;
+}
+.navbar__list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 5. List items & links */
+.navbar__item {
+  position: relative;
+}
+.navbar__link {
+  display: inline-block;
+  color: var(--text-color, #ddd);
+  text-decoration: none !important;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+.navbar__link:hover,
+.navbar__link.active {
+  color: #fff;
+  border-bottom-color: #4fc3f7;
+}
+
+/* 6. Home ripple effect */
+.home-link {
+  overflow: hidden;
+}
 .home-link::after {
   content: '';
   position: absolute;
   left: 50%; top: 50%;
-  width: 0;
-  height: 0;
+  width: 0; height: 0;
   background: rgba(79,195,247,0.2);
   border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width .5s ease, height .5s ease, opacity .5s ease;
+  transform: translate(-50%,-50%);
+  transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
   opacity: 0;
-
-  /* ← Let clicks pass through */
   pointer-events: none;
 }
-
 .home-link:hover::after {
   width: 200px;
   height: 200px;
   opacity: 1;
 }
+
+/* 7. Physics float effect */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-6px); }
+}
+.physics-link:hover > .navbar__link {
+  animation: float 2s ease-in-out infinite !important;
+}
+
