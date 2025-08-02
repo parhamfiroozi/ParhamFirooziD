@@ -18,6 +18,7 @@ export default function NavBar({ links, bgColor, textColor, onPreview, onLeave, 
         <NavLink to="/" className="navbar__logo" onClick={() => onPreview(null)}>
           <img src={logo} alt="Site Logo" />
         </NavLink>
+                
 
         {/* NAV LINKS */}
         <nav className="navbar__nav" onMouseLeave={onLeave}>
