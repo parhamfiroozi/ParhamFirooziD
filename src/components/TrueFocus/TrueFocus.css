@@ -1,0 +1,39 @@
+/* src/components/TrueFocus/TrueFocus.css */
+/* ← exact CSS from https://reactbits.dev/text-animations/true-focus “Code” tab */
+.true-focus {
+    display: inline-block;
+    color: currentColor;
+    position: relative;
+    z-index: 0;
+    transition: color 0.3s ease;
+  }
+  .true-focus::before, 
+  .true-focus::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: currentColor;
+    mix-blend-mode: screen;
+    border-radius: 4px;
+    transform-origin: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .true-focus::before {
+    transform: scaleX(0) scaleY(0.2);
+  }
+  .true-focus::after {
+    transform: scaleX(0.2) scaleY(0);
+  }
+  .true-focus:hover {
+    color: #ffea00;
+  }
+  .true-focus:hover::before {
+    opacity: 0.3;
+    transform: scaleX(1) scaleY(1);
+  }
+  .true-focus:hover::after {
+    opacity: 0.3;
+    transform: scaleX(1) scaleY(1);
+  }
+  

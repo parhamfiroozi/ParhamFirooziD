@@ -1,0 +1,11 @@
+.navbar__link {
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    color: var(--text-color); /* we’ll set this next */
+  }
+  
+  .navbar__link:hover {
+    color: #ffffff;  /* bright white on hover */
+  }
+  

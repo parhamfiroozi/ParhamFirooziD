@@ -1,0 +1,14 @@
+.drip-underlink__drop {
+  position: absolute;
+  top: calc(100% - 0.3rem);                 /* just below the link text */
+  pointer-events: none;
+  opacity: 0.9;
+  animation: drip 2s linear infinite;
+  transform: translateX(-35px);
+}
+
+@keyframes drip {
+  0%   { transform: translateY(0)   scale(0.8); opacity: 1; }
+  70%  { opacity: 0.7; }
+  100% { transform: translateY(160px) scale(1); opacity: 0; }
+}

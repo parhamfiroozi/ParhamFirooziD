@@ -1,0 +1,66 @@
+/* ----------------------------------------------------------
+   1. Import custom fonts
+---------------------------------------------------------- */
+@import './assets/fonts.css';
+
+/* ----------------------------------------------------------
+   2. CSS Reset & Base Styles
+---------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #ffffff; /* page background */
+  color: #000000;      /* default text color */
+  font-family: 'CMU Typewriter', monospace;
+}
+
+/* Make sure <a> tags don't have unexpected underlines globally */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ----------------------------------------------------------
+   3. App Container
+---------------------------------------------------------- */
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ----------------------------------------------------------
+   4. Fade-in Keyframes for Content Transitions
+---------------------------------------------------------- */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ----------------------------------------------------------
+   5. Utility Classes (optional)
+---------------------------------------------------------- */
+/* Centered flex container */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}

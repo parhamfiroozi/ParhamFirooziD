@@ -1,0 +1,17 @@
+/* src/components/BinaryDripUnderLink/BinaryDripUnderLink.css */
+.binary-drip__bit {
+    position: absolute;
+    top: calc(100% - 0.35rem);   /* just under the link */
+    pointer-events: none;
+    font-family: 'CMU Typewriter', monospace;
+    color: #0af;
+    font-size: 1rem;
+    animation: binary-drip 2s linear infinite;
+  }
+  
+  @keyframes binary-drip {
+    0%   { transform: translateY(0)   scale(0.8); opacity: 1; }
+    70%  { opacity: 0.6; }
+    100% { transform: translateY(200px) scale(1); opacity: 0; }
+  }
+  
