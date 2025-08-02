@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import './components/NavBar/NavBar.css';
 import './index.css';  // unchanged
+import PreviewPane from './components/PreviewPane/PreviewPane';
 
 // Page components
 import HomePage       from './pages/HomePage';
@@ -33,6 +34,8 @@ export default function App() {
         onSelect={() => {}}
         previewKey={preview}
       />
+      {/* Hover‐to‐preview pane */}
+      <PreviewPane previewKey={preview} />
 
 
      <main className="content-wrapper">

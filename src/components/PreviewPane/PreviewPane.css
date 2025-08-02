@@ -1,0 +1,22 @@
+.preview-pane {
+    position: fixed;
+    top: 64px;               /* height of your navbar */
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.9);
+    color: #fff;
+    padding: 1rem;
+    box-sizing: border-box;
+    z-index: 900;            /* just under your navbar (z-index:1000) */
+    transition: opacity 0.2s ease;
+  }
+  
+  .preview-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .preview-pane h2 {
+    margin: 0 0 0.5rem;
+  }
+  
